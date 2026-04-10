@@ -59,7 +59,7 @@ project_root/
 
 ### 1. Clone the Repository
 
-```python
+```bash
 git clone https://github.com/your-username/your-repo-name.git  
 cd your-repo-name
 ```
@@ -68,7 +68,7 @@ cd your-repo-name
 
 ### 2. Install Dependencies
 
-```python
+```bash
 pip install -r requirements.txt
 ```
 
@@ -76,7 +76,7 @@ pip install -r requirements.txt
 
 ### 3. Run the Application
 
-```python
+```bash
 python main.py
 ```
 
@@ -86,19 +86,19 @@ python main.py
 
 Run all tests:
 
-```python
+```bash
 pytest
 ```
 
 Run tests with verbose output:
 
-```python
+```bash
 python -m pytest tests/ -v
 ```
 
 Run specific test files:
 
-```python
+```bash
 python -m pytest tests/test_addition.py -v  
 python -m pytest tests/test_invalid_input.py -v  
 python -m pytest tests/test_divide_by_zero.py -v  
