@@ -1,44 +1,32 @@
 from src.model.calculator import CalculatorModel
 
 class CalculatorController:
-    
+
     def __init__(self, view):
         self.view = view
         self.model = CalculatorModel()
 
-        # Bind buttons
-        self.view.add_button.configure(command=self.handle_add)
-        self.view.subtract_button.configure(command=self.handle_subtract)
-        self.view.multiply_button.configure(command=self.handle_multiply)
-        self.view.divide_button.configure(command=self.handle_divide)
+        # Bind number & operator buttons
+        for key, button in self.view.buttons.items():
+            if key == 'C':
+                button.configure(command=self.clear)
+            else:
+                button.configure(command=lambda k=key: self.append(k))
 
-    def validate_input(self, val1, val2):
+        # Equals button
+        self.view.equals_button.configure(command=self.calculate)
+
+    def append(self, value):
+        self.view.append_to_display(value)
+
+    def clear(self):
+        self.view.clear_display()
+
+    def calculate(self):
         try:
-            num1 = float(val1)
-            num2 = float(val2)
-            return num1, num2
-        except ValueError:
-            raise ValueError("Invalid input. Please enter numbers only.")
-
-    def process_operation(self, operation):
-        try:
-            val1, val2 = self.view.get_inputs()
-            num1, num2 = self.validate_input(val1, val2)
-
-            result = operation(num1, num2)
-            self.view.display_result(result)
+            expression = self.view.get_display()
+            result = self.model.evaluate(expression)
+            self.view.set_display(result)
 
         except Exception as e:
             self.view.display_error(str(e))
-
-    def handle_add(self):
-        self.process_operation(self.model.add)
-
-    def handle_subtract(self):
-        self.process_operation(self.model.subtract)
-
-    def handle_multiply(self):
-        self.process_operation(self.model.multiply)
-
-    def handle_divide(self):
-        self.process_operation(self.model.divide)

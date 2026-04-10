@@ -1,15 +1,18 @@
 class CalculatorModel:
-    
-    def add(self, a, b):
-        return a + b
 
-    def subtract(self, a, b):
-        return a - b
+    def evaluate(self, expression):
+        try:
+            # Prevent unsafe input
+            allowed_chars = "0123456789+-*/.() "
+            for char in expression:
+                if char not in allowed_chars:
+                    raise ValueError("Invalid character")
 
-    def multiply(self, a, b):
-        return a * b
+            result = eval(expression)
 
-    def divide(self, a, b):
-        if b == 0:
+            return result
+
+        except ZeroDivisionError:
             raise ValueError("Cannot divide by zero")
-        return a / b
+        except Exception:
+            raise ValueError("Invalid expression")

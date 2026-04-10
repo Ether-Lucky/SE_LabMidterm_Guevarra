@@ -5,38 +5,69 @@ class CalculatorView(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("Simple Calculator")
-        self.geometry("300x300")
+        self.title("Calculator ni Lucky")
+        self.geometry("320x450")
+        self.resizable(False, False)
 
-        # Inputs
-        self.entry1 = ctk.CTkEntry(self, placeholder_text="Enter first number")
-        self.entry1.pack(pady=10)
+        ctk.set_appearance_mode("dark")
+        ctk.set_default_color_theme("blue")
 
-        self.entry2 = ctk.CTkEntry(self, placeholder_text="Enter second number")
-        self.entry2.pack(pady=10)
+        # Display
+        self.display = ctk.CTkEntry(self, height=50, font=("Arial", 24), justify="right")
+        self.display.grid(row=0, column=0, columnspan=4, padx=10, pady=15, sticky="nsew")
 
-        # Buttons
-        self.add_button = ctk.CTkButton(self, text="Add")
-        self.add_button.pack(pady=5)
+        # Buttons layout
+        buttons = [
+            ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
+            ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
+            ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
+            ('0', 4, 0), ('.', 4, 1), ('C', 4, 2), ('+', 4, 3),
+        ]
 
-        self.subtract_button = ctk.CTkButton(self, text="Subtract")
-        self.subtract_button.pack(pady=5)
+        self.buttons = {}
 
-        self.multiply_button = ctk.CTkButton(self, text="Multiply")
-        self.multiply_button.pack(pady=5)
+        for (text, row, col) in buttons:
+            btn = ctk.CTkButton(
+                self,
+                text=text,
+                width=60,
+                height=60,
+                font=("Arial", 18),
+                corner_radius=12
+            )
+            btn.grid(row=row, column=col, padx=5, pady=5, sticky="nsew")
+            self.buttons[text] = btn
 
-        self.divide_button = ctk.CTkButton(self, text="Divide")
-        self.divide_button.pack(pady=5)
+        # Equals button (wide)
+        self.equals_button = ctk.CTkButton(
+            self,
+            text="=",
+            height=60,
+            font=("Arial", 18, "bold"),
+            corner_radius=12
+        )
+        self.equals_button.grid(row=5, column=0, columnspan=4, padx=10, pady=10, sticky="nsew")
 
-        # Result Label
-        self.result_label = ctk.CTkLabel(self, text="Result: ")
-        self.result_label.pack(pady=10)
+        # Make grid responsive
+        for i in range(6):
+            self.grid_rowconfigure(i, weight=1)
+        for j in range(4):
+            self.grid_columnconfigure(j, weight=1)
 
-    def get_inputs(self):
-        return self.entry1.get(), self.entry2.get()
+    # ===== Helper Methods =====
 
-    def display_result(self, result):
-        self.result_label.configure(text=f"Result: {result}")
+    def get_display(self):
+        return self.display.get()
+
+    def set_display(self, value):
+        self.display.delete(0, "end")
+        self.display.insert(0, value)
+
+    def append_to_display(self, value):
+        self.display.insert("end", value)
+
+    def clear_display(self):
+        self.display.delete(0, "end")
 
     def display_error(self, message):
-        self.result_label.configure(text=f"Error: {message}")
+        self.set_display("Error")
