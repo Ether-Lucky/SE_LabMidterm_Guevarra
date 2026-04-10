@@ -31,7 +31,7 @@ project_root/
 │
 ├── quality_analysis.md         # ISO/IEC 25010 software quality analysis
 ├── requirements.txt
-└── README.md
+└── README.md```
 
 ## Key Highlights
 - **MVC Architecture** – Separation of logic, UI, and control flow for maintainability
@@ -48,28 +48,28 @@ project_root/
 
 ## Getting Started
 **1. Clone the Repository**
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+```git clone https://github.com/Ether-Lucky/SE_LabMidterm_Guevarra.git
+cd SE_LabMidterm_Guevarra```
 **2. Install Dependencies**
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 **3. Run the Application**
-python main.py
+```python main.py```
 Running Unit Tests
 
 **Run all tests:**
 
-pytest
+```pytest```
 
 **Run tests with verbose output:**
 
-python -m pytest tests/ -v
+```python -m pytest tests/ -v```
 
 **Run specific test files:**
 
-python -m pytest tests/test_addition.py -v
+```python -m pytest tests/test_addition.py -v
 python -m pytest tests/test_invalid_input.py -v
 python -m pytest tests/test_divide_by_zero.py -v
-python -m pytest tests/test_large_numbers.py -v
+python -m pytest tests/test_large_numbers.py -v```
 
 ## CI/CD Pipeline
 
