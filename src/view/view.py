@@ -64,6 +64,8 @@ class CalculatorView(ctk.CTk):
         self.display.insert(0, value)
 
     def append_to_display(self, value):
+        if self.get_display() == "Error":
+            self.clear_display()
         self.display.insert("end", value)
 
     def clear_display(self):
