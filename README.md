@@ -8,7 +8,8 @@ A simple calculator application built with Python and CustomTkinter, developed a
 
 ## Project Structure
 
-```project_root/
+```
+project_root/
 ├── main.py  
 ├── src/  
 │   ├── model/  
@@ -30,7 +31,8 @@ A simple calculator application built with Python and CustomTkinter, developed a
 │
 ├── quality_analysis.md         # ISO/IEC 25010 software quality analysis  
 ├── requirements.txt  
-└── README.md  ```
+└── README.md
+```
 
 ---
 
@@ -57,20 +59,26 @@ A simple calculator application built with Python and CustomTkinter, developed a
 
 ### 1. Clone the Repository
 
-```git clone https://github.com/your-username/your-repo-name.git  
-cd your-repo-name  ```
+```python
+git clone https://github.com/your-username/your-repo-name.git  
+cd your-repo-name
+```
 
 ---
 
 ### 2. Install Dependencies
 
-```pip install -r requirements.txt  ```
+```python
+pip install -r requirements.txt
+```
 
 ---
 
 ### 3. Run the Application
 
-```python main.py  ```
+```python
+python main.py
+```
 
 ---
 
@@ -78,18 +86,24 @@ cd your-repo-name  ```
 
 Run all tests:
 
-```pytest  ```
+```python
+pytest
+```
 
 Run tests with verbose output:
 
-```python -m pytest tests/ -v  ```
+```python
+python -m pytest tests/ -v
+```
 
 Run specific test files:
 
-```python -m pytest tests/test_addition.py -v  
+```python
+python -m pytest tests/test_addition.py -v  
 python -m pytest tests/test_invalid_input.py -v  
 python -m pytest tests/test_divide_by_zero.py -v  
-python -m pytest tests/test_large_numbers.py -v  ```
+python -m pytest tests/test_large_numbers.py -v
+```
 
 ---
 
