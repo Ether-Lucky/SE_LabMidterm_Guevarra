@@ -8,7 +8,7 @@ A simple calculator application built with Python and CustomTkinter, developed a
 
 ## Project Structure
 
-project_root/
+```project_root/
 ├── main.py  
 ├── src/  
 │   ├── model/  
@@ -30,7 +30,7 @@ project_root/
 │
 ├── quality_analysis.md         # ISO/IEC 25010 software quality analysis  
 ├── requirements.txt  
-└── README.md  
+└── README.md  ```
 
 ---
 
@@ -57,20 +57,20 @@ project_root/
 
 ### 1. Clone the Repository
 
-git clone https://github.com/your-username/your-repo-name.git  
-cd your-repo-name  
+```git clone https://github.com/your-username/your-repo-name.git  
+cd your-repo-name  ```
 
 ---
 
 ### 2. Install Dependencies
 
-pip install -r requirements.txt  
+```pip install -r requirements.txt  ```
 
 ---
 
 ### 3. Run the Application
 
-python main.py  
+```python main.py  ```
 
 ---
 
@@ -78,18 +78,18 @@ python main.py
 
 Run all tests:
 
-pytest  
+```pytest  ```
 
 Run tests with verbose output:
 
-python -m pytest tests/ -v  
+```python -m pytest tests/ -v  ```
 
 Run specific test files:
 
-python -m pytest tests/test_addition.py -v  
+```python -m pytest tests/test_addition.py -v  
 python -m pytest tests/test_invalid_input.py -v  
 python -m pytest tests/test_divide_by_zero.py -v  
-python -m pytest tests/test_large_numbers.py -v  
+python -m pytest tests/test_large_numbers.py -v  ```
 
 ---
 
